@@ -1,16 +1,19 @@
 import pygame
 pygame.init()
 
-# Dieser Code-Teil wurde im Sprint 1 erstellt. In diesem Abschnitt (ca. Zeile 4-48)
+# Bei diesen Abschnitten (siehe Markiert mit Kommentare #<------ und #------>)
 # wurden noch keine Commit- und Push-Befehle verwendet, da wir diese zu diesem
-# Zeitpunkt noch nicht verstanden haben bzw. ab Sprint 2 nun umsetzen werden. 
+# Zeitpunkt noch nicht verstanden haben wie es funktioniert. Ab Sprint 2 wird es nun umgesetzt. 
 
+#<------
 WHITE = (255,255,255)
+RED = (255,0,0)
+GREEN = (0,255,0)
 
 screen = pygame.display.set_mode((390,390))
 pygame.display.set_caption("VIERGEWINNT_2.py")
 
-s6 = [  "0" ]*7
+s6 = [  "0", "T", "T", "T", "0", "0", "0"]
 s5 = [  "0" ]*7
 s4 = [  "0" ]*7
 s3 = [  "0" ]*7
@@ -19,10 +22,39 @@ s1 = [  "0" ]*7
 s0 = [  "0" ]*7
  
 feld = [s0,s1,s2,s3,s4,s5,s6]
+#------>
 
+breite_gewinnlinie = 6
+B = 18
+breite_kreuz = 2
+
+
+def feld_ausgabe():
+    y = 0
+    while y < 7:
+        x = 0
+        while x < 7:
+            if feld[y][x] == "T":
+                pygame.draw.line(screen, RED, (45+50*x-B, 45+50*(6-y)+B),(45+50*x+B,45+50*(6-y)-B),breite_kreuz)
+                pygame.draw.line(screen, RED, (45+50*x-B, 45+50*(6-y)-B),(45+50*x+B,45+50*(6-y)+B) ,breite_kreuz)
+                pygame.display.flip()
+            elif feld[y][x] == "X":
+                pygame.draw.line(screen, GREEN, (45+50*x-B, 45+50*(6-y)+B),(45+50*x+B,45+50*(6-y)-B),breite_kreuz )
+                pygame.draw.line(screen, GREEN, (45+50*x-B, 45+50*(6-y)-B),(45+50*x+B,45+50*(6-y)+B),breite_kreuz )
+                pygame.display.flip()
+            else:
+                pass
+            x = x + 1
+        y = y + 1
+
+#<------
 aktiv = True
 
 while aktiv:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            aktiv = False
+
     pygame.draw.line(screen, WHITE, (20,20), (370,20) )
     pygame.draw.line(screen, WHITE, (20,70), (370,70) )
     pygame.draw.line(screen, WHITE, (20,120), (370,120) )
@@ -42,7 +74,7 @@ while aktiv:
     pygame.draw.line(screen, WHITE, (370,20), (370,370) )
     pygame.display.flip()
 
-    for event in pygame.event.get():
-        pygame.event.get()
-        if event.type == pygame.QUIT:
-            aktiv = False
+    feld_ausgabe()
+
+    pygame.display.flip()
+#------> 
