@@ -1,6 +1,10 @@
 import pygame
 pygame.init()
 
+# Dieser Code-Teil wurde im Sprint 1 erstellt. In diesem Abschnitt (ca. Zeile 4-48)
+# wurden noch keine Commit- und Push-Befehle verwendet, da wir diese zu diesem
+# Zeitpunkt noch nicht verstanden haben bzw. ab Sprint 2 nun umsetzen werden. 
+
 WHITE = (255,255,255)
 
 screen = pygame.display.set_mode((390,390))
@@ -15,8 +19,6 @@ s1 = [  "0" ]*7
 s0 = [  "0" ]*7
  
 feld = [s0,s1,s2,s3,s4,s5,s6]
-
-#Für Weiterarbeit: 1 Dimension ist Spalte, die andere Zeile, immer "T" oder "X" für die 2 Spieler oder 0 für Leer
 
 aktiv = True
 
