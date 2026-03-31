@@ -1,4 +1,4 @@
-import pygame
+import pygame 
 pygame.init()
 
 # Bei diesen Abschnitten (siehe Markiert mit Kommentare #<------ und #------>)
