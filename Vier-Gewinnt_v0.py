@@ -63,6 +63,8 @@ def hoch_gewinnen(B):
             else:
                 b = b + 1
         a = a + 1
+def diagonal_gewinnen_l():
+    
 
 def feld_ausgabe():
     y = 0
