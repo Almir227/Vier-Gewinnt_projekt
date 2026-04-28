@@ -63,12 +63,18 @@ def hoch_gewinnen(B):
             else:
                 b = b + 1
         a = a + 1
+
 def diagonal_gewinnen_l():
     a = 0
     while a < 7:
         b = 0
         while b + 3 < 7 and a + 3 < 7:
             if feld[b][a] == feld[b+1][a+1] == feld[b+2][a+2] == feld[b+3][a+3] and feld[b][a] != "0":
+                                          
+                    if feld[b][a] == "T":
+                        pygame.draw.line(screen, RED,(45+50*a-B, 45+50*(6-b)+B), (45+50*(a+3)+B, 45+50*(3-b)-B), breite_gewinnlinie)
+                        pygame.display.flip()
+                        break
 
 def feld_ausgabe():
     y = 0
