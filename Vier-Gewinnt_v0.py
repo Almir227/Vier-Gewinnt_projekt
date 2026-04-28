@@ -82,22 +82,21 @@ for event in pygame.event.get():
                     if P is None or P < 1 or P > 7:
                         P = None
                     elif 8 > P > 0:
+                        r = 0
+                        while r < 7:
+                            if feld[r][P-1] == "0":
+                                
+                                if n % 2 != 0:
+                                    feld[r][P-1] = "T"
+                                else:
+                                    feld[r][P-1] = "X"
 
-                    r = 0
-                    while r < 7:
-                        if feld[r][P-1] == "0":
-                            
-                            if n % 2 != 0:
-                                feld[r][P-1] = "T"
-                            else:
-                                feld[r][P-1] = "X"
-
-                            feld_ausgabe()
-                            n = n + 1
-                            r = 0
-                            break
-                        else:
-                            r = r + 1
+                                feld_ausgabe()
+                                n = n + 1
+                                r = 0
+                                break
+                    else:
+                        r = r + 1
 
 
 
