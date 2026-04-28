@@ -68,6 +68,7 @@ def diagonal_gewinnen_l():
     while a < 7:
         b = 0
         while b + 3 < 7 and a + 3 < 7:
+            if feld[b][a] == feld[b+1][a+1] == feld[b+2][a+2] == feld[b+3][a+3] and feld[b][a] != "0":
 
 def feld_ausgabe():
     y = 0
