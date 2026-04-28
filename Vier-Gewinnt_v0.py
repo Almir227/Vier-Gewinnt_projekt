@@ -80,5 +80,15 @@ while aktiv:
                         P = None
                     elif 8 > P > 0:
 
+                    r = 0
+                    while r < 7:
+                        if feld[r][P-1] == "0":
+                            feld[r][P-1] = "T"
+                            feld_ausgabe()
+                            n = n + 1
+                            r = 0
+                            break
+                        else:
+                            r = r + 1
 
 
