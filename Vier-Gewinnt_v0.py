@@ -28,6 +28,7 @@ def quer_gewinnen(B):
     while b < 7:
         a = 0
         while a < 4:
+            if feld[b][a] == feld[b][a+1] == feld[b][a+2] == feld[b][a+3] and feld[b][a] != "0":
 
 def feld_ausgabe():
     y = 0
