@@ -25,6 +25,8 @@ breite_kreuz = 2
 
 def quer_gewinnen():
 
+
+
 def feld_ausgabe():
     y = 0
     while y < 7:
@@ -46,6 +48,7 @@ def feld_ausgabe():
 
 aktiv = True
 
+n = 0 
 while aktiv:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
