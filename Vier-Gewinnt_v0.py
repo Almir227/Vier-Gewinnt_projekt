@@ -88,8 +88,7 @@ while aktiv:
                                 feld[r][P-1] = "T"
                             else:
                                 feld[r][P-1] = "X"
-                        
-                            feld[r][P-1] = "T"
+
                             feld_ausgabe()
                             n = n + 1
                             r = 0
