@@ -1,11 +1,6 @@
 import pygame 
 pygame.init()
 
-# Bei diesen Abschnitten (siehe Markiert mit Kommentare #<------ und #------>)
-# wurden noch keine Commit- und Push-Befehle verwendet, da wir diese zu diesem
-# Zeitpunkt noch nicht verstanden haben wie es funktioniert. Ab Sprint 2 wird es nun umgesetzt. 
-
-#<------
 WHITE = (255,255,255)
 RED = (255,0,0)
 GREEN = (0,255,0)
@@ -13,7 +8,7 @@ GREEN = (0,255,0)
 screen = pygame.display.set_mode((390,390))
 pygame.display.set_caption("VIERGEWINNT_2.py")
 
-s6 = [  "0", "T", "T", "T", "0", "0", "0"]
+s6 = [  "0" ]*7
 s5 = [  "0" ]*7
 s4 = [  "0" ]*7
 s3 = [  "0" ]*7
@@ -22,12 +17,13 @@ s1 = [  "0" ]*7
 s0 = [  "0" ]*7
  
 feld = [s0,s1,s2,s3,s4,s5,s6]
-#------>
+
 
 breite_gewinnlinie = 6
 B = 18
 breite_kreuz = 2
 
+def quer_gewinnen():
 
 def feld_ausgabe():
     y = 0
@@ -47,7 +43,7 @@ def feld_ausgabe():
             x = x + 1
         y = y + 1
 
-#<------
+
 aktiv = True
 
 while aktiv:
@@ -77,4 +73,4 @@ while aktiv:
     feld_ausgabe()
 
     pygame.display.flip()
-#------> 
+
