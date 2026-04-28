@@ -49,7 +49,8 @@ def hoch_gewinnen(B):
     while a < 7:
         b = 0
         while b < 4:
-            
+            if feld[b][a] == feld[b+1][a] == feld[b+2][a] == feld[b+3][a] and feld[b][a] != "0":
+
 def feld_ausgabe():
     y = 0
     while y < 7:
