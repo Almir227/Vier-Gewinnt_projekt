@@ -1,13 +1,16 @@
-import pygame 
+import pygame
 pygame.init()
-
+ 
 WHITE = (255,255,255)
 RED = (255,0,0)
 GREEN = (0,255,0)
-
+ 
 screen = pygame.display.set_mode((390,390))
 pygame.display.set_caption("VIERGEWINNT_2.py")
-
+ 
+ 
+ 
+#Anfangsdefinition
 s6 = [  "0" ]*7
 s5 = [  "0" ]*7
 s4 = [  "0" ]*7
@@ -17,113 +20,123 @@ s1 = [  "0" ]*7
 s0 = [  "0" ]*7
  
 feld = [s0,s1,s2,s3,s4,s5,s6]
-
-
+ 
 breite_gewinnlinie = 6
 B = 18
 breite_kreuz = 2
-
+ 
+# Gewinnen mit 4 in 1 Reihe
 def quer_gewinnen(B):
+   
     b = 0
     while b < 7:
         a = 0
-        while a < 4:
+        while a < 4:  
             if feld[b][a] == feld[b][a+1] == feld[b][a+2] == feld[b][a+3] and feld[b][a] != "0":
-                
                 if feld[b][a] == "T":
                     pygame.draw.line(screen, RED,(45-B+50*a,45+50*(6-b)), (45+B+50*(a+3), 45+50*(6-b)), breite_gewinnlinie)
                     pygame.display.flip()
+             
+                   
                     break
+ 
                 else:
                     pygame.draw.line(screen, GREEN,(45-B+50*a,45+50*(6-b)), (45+B+50*(a+3), 45+50*(6-b)), breite_gewinnlinie)
                     pygame.display.flip()
+                   
                     break
-
+ 
             else:
                 a = a + 1
-
+               
         b = b + 1
-
+       
+#Gewinnen mit 4 in 1 Spalte
 def hoch_gewinnen(B):
     a = 0
     while a < 7:
         b = 0
-        while b < 4:
+        while b < 4:  
             if feld[b][a] == feld[b+1][a] == feld[b+2][a] == feld[b+3][a] and feld[b][a] != "0":
-                    
                 if feld[b][a] == "T":
                     pygame.draw.line(screen, RED,(45+50*a,45+B+50*(6-b)),(45+50*a, 45-B+50*(3-b)), breite_gewinnlinie)
                     pygame.display.flip()
+                 
                     break
-
                 else:
                     pygame.draw.line(screen, GREEN,(45+50*a,45+B+50*(6-b)),(45+50*a, 45-B+50*(3-b)), breite_gewinnlinie)
                     pygame.display.flip()
+                   
                     break
             else:
                 b = b + 1
+               
         a = a + 1
-
+       
+#Gewinnen 4 diagonal links unten zu rechts oben
 def diagonal_gewinnen_l():
     a = 0
     while a < 7:
         b = 0
         while b + 3 < 7 and a + 3 < 7:
             if feld[b][a] == feld[b+1][a+1] == feld[b+2][a+2] == feld[b+3][a+3] and feld[b][a] != "0":
-                                          
-                    if feld[b][a] == "T":
-                        pygame.draw.line(screen, RED,(45+50*a-B, 45+50*(6-b)+B), (45+50*(a+3)+B, 45+50*(3-b)-B), breite_gewinnlinie)
-                        pygame.display.flip()
-                        break
-
-                    else:
-                        pygame.draw.line(screen, GREEN,(45+50*a-B, 45+50*(6-b)+B), (45+50*(a+3)+B, 45+50*(3-b)-B), breite_gewinnlinie)
-                        pygame.display.flip()
-                        break
+                if feld[b][a] == "T":
+                    pygame.draw.line(screen, RED,(45+50*a-B, 45+50*(6-b)+B), (45+50*(a+3)+B, 45+50*(3-b)-B), breite_gewinnlinie)
+                    pygame.display.flip()
+                   
+                    break
+                else:
+                    pygame.draw.line(screen, GREEN,(45+50*a-B, 45+50*(6-b)+B), (45+50*(a+3)+B, 45+50*(3-b)-B), breite_gewinnlinie)
+                    pygame.display.flip()
+                   
+                    break
             else:
                 b = b + 1
         a = a + 1
+ 
+#diagonal gewinnen links oben zu rechts unten            
 def diagonal_gewinnen_r():
     a = 0
-    while a <= 3:
-        b = 6
-        while b >= 3:
+   
+    while a <= 3:  
+        b = 6  
+        while b >= 3:  
+           
             if feld[b][a] == feld[b-1][a+1] == feld[b-2][a+2] == feld[b-3][a+3] and feld[b][a] != "0":
-                    
-                    if feld[b][a] == "T":
-                        pygame.draw.line(screen, RED,(45+50*a-B, 45+50*(6-b)-B),(45+50*(a+3)+B, 45+50*(9-b)+B), breite_gewinnlinie)
-                        pygame.display.flip()
-                        break
-                    else:
-                        pygame.draw.line(screen, GREEN,(45+50*a-B, 45+50*(6-b)-B),(45+50*(a+3)+B, 45+50*(9-b)+B), breite_gewinnlinie)
-                        pygame.display.flip()
-                        break
-
-            b = b - 1
-    a = a + 1
-
+                if feld[b][a] == "T":
+                    pygame.draw.line(screen, RED,(45+50*a-B, 45+50*(6-b)-B),(45+50*(a+3)+B, 45+50*(9-b)+B), breite_gewinnlinie)
+                    pygame.display.flip()
+                   
+                    break
+                else:
+                    pygame.draw.line(screen, GREEN,(45+50*a-B, 45+50*(6-b)-B),(45+50*(a+3)+B, 45+50*(9-b)+B), breite_gewinnlinie)
+                    pygame.display.flip()
+                   
+                    break
+            b = b - 1  
+        a = a + 1  
+ 
+ 
+ 
+ 
+aktiv = True
+ 
 def feld_ausgabe():
     y = 0
     while y < 7:
         x = 0
         while x < 7:
             if feld[y][x] == "T":
-                pygame.draw.line(screen, RED, (45+50*x-B, 45+50*(6-y)+B),(45+50*x+B,45+50*(6-y)-B),breite_kreuz)
-                pygame.draw.line(screen, RED, (45+50*x-B, 45+50*(6-y)-B),(45+50*x+B,45+50*(6-y)+B) ,breite_kreuz)
+                pygame.draw.line(screen, RED, (45+50*x-B, 45+50*(6-y)+B),(45+50*x+B, 45+50*(6-y)-B),breite_kreuz )
+                pygame.draw.line(screen, RED, (45+50*x-B, 45+50*(6-y)-B),(45+50*x+B, 45+50*(6-y)+B) ,breite_kreuz)
                 pygame.display.flip()
             elif feld[y][x] == "X":
-                pygame.draw.line(screen, GREEN, (45+50*x-B, 45+50*(6-y)+B),(45+50*x+B,45+50*(6-y)-B),breite_kreuz )
-                pygame.draw.line(screen, GREEN, (45+50*x-B, 45+50*(6-y)-B),(45+50*x+B,45+50*(6-y)+B),breite_kreuz )
+                pygame.draw.line(screen, GREEN, (45+50*x-B, 45+50*(6-y)+B),(45+50*x+B, 45+50*(6-y)-B),breite_kreuz )
+                pygame.draw.line(screen, GREEN, (45+50*x-B, 45+50*(6-y)-B),(45+50*x+B, 45+50*(6-y)+B),breite_kreuz )
                 pygame.display.flip()
-            else:
-                pass
             x = x + 1
         y = y + 1
-
-
-aktiv = True
-
-n = 0 
+n = 0
 while aktiv:
     pygame.draw.line(screen, WHITE, (20,20), (370,20) )
     pygame.draw.line(screen, WHITE, (20,70), (370,70) )
@@ -143,35 +156,74 @@ while aktiv:
     pygame.draw.line(screen, WHITE, (320,20), (320,370) )
     pygame.draw.line(screen, WHITE, (370,20), (370,370) )
     pygame.display.flip()
-
-feld_ausgabe()
-pygame.display.flip()
-
-for event in pygame.event.get():
+    
+    for event in pygame.event.get():
+        pygame.event.get()
         if event.type == pygame.QUIT:
             aktiv = False
+           
+       
+ 
+            #Ablauf Programm
+       
         if n < 49:
             if event.type == pygame.KEYDOWN:
-                if event.unicode.isdigit():
+               
+                if event.unicode.isdigit():  
                     P = int(event.unicode)
                     if P is None or P < 1 or P > 7:
                         P = None
                     elif 8 > P > 0:
-                        r = 0
-                        while r < 7:
-                            if feld[r][P-1] == "0":
-                                
-                                if n % 2 != 0:
-                                    feld[r][P-1] = "T"
+                        if n%2!=0:
+                               
+                            while r < 7 and n%2!=0:
+                                if feld[r][P-1] == "0":
+                                    feld[r][P-1] ="T"
+                                    feld_ausgabe()
+                                    quer_gewinnen(B)
+                                    hoch_gewinnen(B)
+                                    diagonal_gewinnen_l()
+                                    diagonal_gewinnen_r()
+                                    P = None
+                                    n = n + 1
+                                   
+                                    r = 0
+                                   
+                                   
+                                    break
+               
                                 else:
-                                    feld[r][P-1] = "X"
-
-                                feld_ausgabe()
-                                n = n + 1
+                                    r = r + 1
+                            else:
                                 r = 0
+                                P = None
+                               
                                 break
-                    else:
-                        r = r + 1
-
-
-
+           
+                        elif n%2 == 0:
+                     
+                   
+                           
+                            r = 0
+                            while r < 7 and n%2 == 0 :
+                                if feld[r][P-1] == "0":
+                                    feld[r][P-1] ="X"
+                                    feld_ausgabe()
+                                    quer_gewinnen(B)
+                                    hoch_gewinnen(B)
+                                    diagonal_gewinnen_l()
+                                    diagonal_gewinnen_r()
+                                    P = None
+                                    n = n + 1
+                                   
+                                    r = 0
+                                   
+                                    break
+               
+                                else:
+                                    r = r + 1
+                            else:
+                                r = 0
+                                P = None
+                               
+                                break
