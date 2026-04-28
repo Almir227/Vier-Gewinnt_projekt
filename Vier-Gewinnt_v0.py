@@ -62,6 +62,7 @@ def hoch_gewinnen(B):
                     break
             else:
                 b = b + 1
+        a = a + 1
 
 def feld_ausgabe():
     y = 0
