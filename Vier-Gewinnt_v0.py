@@ -45,7 +45,11 @@ def quer_gewinnen(B):
         b = b + 1
 
 def hoch_gewinnen(B):
-    
+    a = 0
+    while a < 7:
+        b = 0
+        while b < 4:
+            
 def feld_ausgabe():
     y = 0
     while y < 7:
