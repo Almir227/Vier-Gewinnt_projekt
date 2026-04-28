@@ -23,10 +23,8 @@ breite_gewinnlinie = 6
 B = 18
 breite_kreuz = 2
 
-def quer_gewinnen():
-
-
-
+def quer_gewinnen(B):
+    
 def feld_ausgabe():
     y = 0
     while y < 7:
