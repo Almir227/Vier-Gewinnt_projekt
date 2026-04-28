@@ -56,6 +56,11 @@ def hoch_gewinnen(B):
                     pygame.display.flip()
                     break
 
+                else:
+                    pygame.draw.line(screen, GREEN,(45+50*a,45+B+50*(6-b)),(45+50*a, 45-B+50*(3-b)), breite_gewinnlinie)
+                    pygame.display.flip()
+                    break
+
 def feld_ausgabe():
     y = 0
     while y < 7:
