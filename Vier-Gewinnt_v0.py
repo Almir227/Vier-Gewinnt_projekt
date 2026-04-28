@@ -24,7 +24,9 @@ B = 18
 breite_kreuz = 2
 
 def quer_gewinnen(B):
-    
+    b = 0
+    while b < 7:
+
 def feld_ausgabe():
     y = 0
     while y < 7:
