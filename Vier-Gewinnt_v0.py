@@ -86,6 +86,8 @@ def diagonal_gewinnen_l():
 def diagonal_gewinnen_r():
     a = 0
     while a <= 3:
+        b = 6
+        while b >= 3:
 
 def feld_ausgabe():
     y = 0
