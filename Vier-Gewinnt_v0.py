@@ -64,7 +64,8 @@ def hoch_gewinnen(B):
                 b = b + 1
         a = a + 1
 def diagonal_gewinnen_l():
-    
+    a = 0
+    while a < 7:
 
 def feld_ausgabe():
     y = 0
