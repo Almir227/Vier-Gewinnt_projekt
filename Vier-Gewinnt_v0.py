@@ -34,6 +34,11 @@ def quer_gewinnen(B):
                     pygame.draw.line(screen, RED,(45-B+50*a,45+50*(6-b)), (45+B+50*(a+3), 45+50*(6-b)), breite_gewinnlinie)
                     pygame.display.flip()
                     break
+                else:
+                    pygame.draw.line(screen, GREEN,(45-B+50*a,45+50*(6-b)), (45+B+50*(a+3), 45+50*(6-b)), breite_gewinnlinie)
+                    pygame.display.flip()
+                    break
+                
 def feld_ausgabe():
     y = 0
     while y < 7:
