@@ -75,7 +75,11 @@ def diagonal_gewinnen_l():
                         pygame.draw.line(screen, RED,(45+50*a-B, 45+50*(6-b)+B), (45+50*(a+3)+B, 45+50*(3-b)-B), breite_gewinnlinie)
                         pygame.display.flip()
                         break
-
+                    
+                    else:
+                        pygame.draw.line(screen, GREEN,(45+50*a-B, 45+50*(6-b)+B), (45+50*(a+3)+B, 45+50*(3-b)-B), breite_gewinnlinie)
+                        pygame.display.flip()
+                        break
 def feld_ausgabe():
     y = 0
     while y < 7:
