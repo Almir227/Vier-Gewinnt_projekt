@@ -50,10 +50,6 @@ aktiv = True
 
 n = 0 
 while aktiv:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            aktiv = False
-
     pygame.draw.line(screen, WHITE, (20,20), (370,20) )
     pygame.draw.line(screen, WHITE, (20,70), (370,70) )
     pygame.draw.line(screen, WHITE, (20,120), (370,120) )
@@ -72,6 +68,14 @@ while aktiv:
     pygame.draw.line(screen, WHITE, (320,20), (320,370) )
     pygame.draw.line(screen, WHITE, (370,20), (370,370) )
     pygame.display.flip()
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            aktiv = False
+        if n < 49:
+            if event.type == pygame.KEYDOWN:
+                if event.unicode.isdigit():
+                    P = int(event.unicode)
 
     feld_ausgabe()
 
