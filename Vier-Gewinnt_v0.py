@@ -42,6 +42,8 @@ def quer_gewinnen(B):
             else:
                 a = a + 1
                 
+        b = b + 1
+                
 def feld_ausgabe():
     y = 0
     while y < 7:
