@@ -83,7 +83,8 @@ def diagonal_gewinnen_l():
             else:
                 b = b + 1
         a = a + 1
-
+def diagonal_gewinnen_r():
+    
 def feld_ausgabe():
     y = 0
     while y < 7:
