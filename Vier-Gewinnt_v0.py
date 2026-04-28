@@ -83,6 +83,12 @@ while aktiv:
                     r = 0
                     while r < 7:
                         if feld[r][P-1] == "0":
+                            
+                            if n % 2 != 0:
+                                feld[r][P-1] = "T"
+                            else:
+                                feld[r][P-1] = "X"
+                        
                             feld[r][P-1] = "T"
                             feld_ausgabe()
                             n = n + 1
@@ -90,5 +96,6 @@ while aktiv:
                             break
                         else:
                             r = r + 1
+
 
 
