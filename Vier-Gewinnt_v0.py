@@ -68,7 +68,7 @@ while aktiv:
     pygame.draw.line(screen, WHITE, (320,20), (320,370) )
     pygame.draw.line(screen, WHITE, (370,20), (370,370) )
     pygame.display.flip()
-    
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             aktiv = False
@@ -76,8 +76,9 @@ while aktiv:
             if event.type == pygame.KEYDOWN:
                 if event.unicode.isdigit():
                     P = int(event.unicode)
+                    if P is None or P < 1 or P > 7:
+                        P = None
+                    elif 8 > P > 0:
 
-    feld_ausgabe()
 
-    pygame.display.flip()
 
