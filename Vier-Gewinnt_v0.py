@@ -89,6 +89,11 @@ def diagonal_gewinnen_r():
         b = 6
         while b >= 3:
             if feld[b][a] == feld[b-1][a+1] == feld[b-2][a+2] == feld[b-3][a+3] and feld[b][a] != "0":
+                    
+                    if feld[b][a] == "T":
+                        pygame.draw.line(screen, RED,(45+50*a-B, 45+50*(6-b)-B),(45+50*(a+3)+B, 45+50*(9-b)+B), breite_gewinnlinie)
+                        pygame.display.flip()
+                        break
 
 def feld_ausgabe():
     y = 0
