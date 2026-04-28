@@ -50,6 +50,11 @@ def hoch_gewinnen(B):
         b = 0
         while b < 4:
             if feld[b][a] == feld[b+1][a] == feld[b+2][a] == feld[b+3][a] and feld[b][a] != "0":
+                    
+                if feld[b][a] == "T":
+                    pygame.draw.line(screen, RED,(45+50*a,45+B+50*(6-b)),(45+50*a, 45-B+50*(3-b)), breite_gewinnlinie)
+                    pygame.display.flip()
+                    break
 
 def feld_ausgabe():
     y = 0
