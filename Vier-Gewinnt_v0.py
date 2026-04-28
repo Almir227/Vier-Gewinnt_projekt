@@ -69,7 +69,10 @@ while aktiv:
     pygame.draw.line(screen, WHITE, (370,20), (370,370) )
     pygame.display.flip()
 
-    for event in pygame.event.get():
+feld_ausgabe()
+pygame.display.flip()
+
+for event in pygame.event.get():
         if event.type == pygame.QUIT:
             aktiv = False
         if n < 49:
