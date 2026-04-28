@@ -99,6 +99,9 @@ def diagonal_gewinnen_r():
                         pygame.display.flip()
                         break
 
+            b = b - 1
+    a = a + 1
+
 def feld_ausgabe():
     y = 0
     while y < 7:
