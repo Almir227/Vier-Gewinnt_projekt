@@ -88,6 +88,7 @@ def diagonal_gewinnen_r():
     while a <= 3:
         b = 6
         while b >= 3:
+            if feld[b][a] == feld[b-1][a+1] == feld[b-2][a+2] == feld[b-3][a+3] and feld[b][a] != "0":
 
 def feld_ausgabe():
     y = 0
