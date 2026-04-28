@@ -29,7 +29,11 @@ def quer_gewinnen(B):
         a = 0
         while a < 4:
             if feld[b][a] == feld[b][a+1] == feld[b][a+2] == feld[b][a+3] and feld[b][a] != "0":
-
+                
+                if feld[b][a] == "T":
+                    pygame.draw.line(screen, RED,(45-B+50*a,45+50*(6-b)), (45+B+50*(a+3), 45+50*(6-b)), breite_gewinnlinie)
+                    pygame.display.flip()
+                    break
 def feld_ausgabe():
     y = 0
     while y < 7:
